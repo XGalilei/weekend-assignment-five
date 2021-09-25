@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import {  HashRouter as Router,  Route,
-} from 'react-router-dom';
+import {  HashRouter as Router,  Route} from 'react-router-dom';
+import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import {useDispatch} from 'react-redux';
 
 function App() {
+
+  const dispatch = useDispatch();
 
   return (
     <div className='App'>
@@ -13,10 +17,13 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
 
+      <Feeling />
       <Router>
-        <Route/>
-        <Route/>
-        <Route/>
+        <Route exact path= "/feeling" component={Feeling}/>
+        <Route exact path= "/understanding" component={Understanding}/>
+        <Route exact path= "/support" component={Support}/>
+        <Route exact path= "/comment" component={Comment}/>
+
         <Route/>
       </Router>
     </div>
