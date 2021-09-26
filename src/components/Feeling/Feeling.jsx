@@ -1,13 +1,13 @@
 function Feeling() {
 
     const handleNext = () => {
-
+        console.log('Feeling');
     };
 
     return <div>
-        <form>
+        <form onSubmit={handleNext}>
             <p>How are you feeling today?</p>
-            <input></input>
+            <input type="number"></input>
             <button>Next</button>
         </form>
     </div>;
