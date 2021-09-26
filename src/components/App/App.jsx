@@ -8,6 +8,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Admin from '../Admin/Admin';
+import Review from '../Review/Review';
 
 import {useDispatch} from 'react-redux';
 
@@ -29,6 +30,8 @@ function App() {
         type: 'SET_ENTRIES',
         payload: response.data
       });
+      }).catch(error => {
+        console.log('Oopsies...', error);;
     });
   }
 
@@ -44,7 +47,7 @@ function App() {
         <Route exact path= "/understanding" component={Understanding}/>
         <Route exact path= "/support" component={Support}/>
         <Route exact path= "/comments" component={Comments}/>
-        <Route exact path= "/review" />
+        <Route exact path= "/review" component={Review}/>
 
         <Route exact path= "/admin" component={Admin}/>
       </Router>
