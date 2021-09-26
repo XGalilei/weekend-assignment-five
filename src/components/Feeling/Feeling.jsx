@@ -1,7 +1,15 @@
+import {useHistory} from 'react-router-dom';
+
 function Feeling() {
 
-    const handleNext = () => {
+    const history = useHistory();
+
+    const handleNext = (event) => {
+        event.preventDefault();
+        
         console.log('Feeling');
+
+        history.push('/understanding');
     };
 
     return <div>

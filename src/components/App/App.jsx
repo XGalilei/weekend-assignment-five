@@ -21,9 +21,8 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
 
-      <Feeling />
       <Router>
-        <Route exact path= "/feeling" component={Feeling}/>
+        <Route exact path= "/" component={Feeling}/>
         <Route exact path= "/understanding" component={Understanding}/>
         <Route exact path= "/support" component={Support}/>
         <Route exact path= "/comments" component={Comments}/>
