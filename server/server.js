@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 const router = express.Router();
-const pool = require('../modules/pool');
+const pool = require('./modules/pool.js');
 
 /** ---------- EXPRESS ROUTES ---------- **/
 router.get('/feedback', (req, res) => {
@@ -33,6 +33,17 @@ router.post('/feedback', (req, res) => {
         console.log('Error in /POST:', error);
         res.sendStatus(500);
     });
+});
+
+router.delete('/:id', (req, res) => {
+    let deleteID = req.params.id;
+    let queryText = `DELETE FROM "feedback" WHERE "id" = $1;`;
+    pool.query(queryText, [deleteID]).then(result => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('Error in /DELETE:', error);
+        res.sendStatus(500);
+    })
 });
 
 /** ---------- START SERVER ---------- **/

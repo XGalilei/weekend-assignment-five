@@ -40,12 +40,20 @@ const commentState = (state = defaultComments, action) => {
     return state;
 }
 
+const entries = (state = [], action) => {
+    if(action.type === 'SET_ENTRIES') {
+        return action.payload;
+    }
+    return state;
+}
+
 const reduxStore = createStore(
     combineReducers({
         feelingState,
         understandingState,
         supportState,
-        commentState
+        commentState,
+        entries
     }),applyMiddleware(logger)
 );
 
