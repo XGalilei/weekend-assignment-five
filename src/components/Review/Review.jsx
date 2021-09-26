@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
@@ -8,6 +9,21 @@ function Review() {
 
     const handleNext = (event) => {
         event.preventDefault();
+
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: {
+                feeling: formInfo.feelingState.feeling,
+                understanding: formInfo.understandingState.understanding,
+                support: formInfo.supportState.support,
+                comments: formInfo.commentState.comments
+            }
+        }).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log('Error:', error);
+        });
 
         history.push('/');
 
