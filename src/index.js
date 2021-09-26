@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 const defaultRating = {score: 1};
 const defaultComments = {comments: ''};
 
+const defaultEntry = {feeling: 0, understanding: 0, support: 0, comments: ''}; 
+
 const feelingState = (state = defaultRating, action) => {
     if(action.type === 'SET_FEELING') {
         return action.payload;

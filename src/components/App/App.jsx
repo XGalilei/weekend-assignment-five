@@ -14,6 +14,13 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const fetchEntries = () => {
+    axios({
+      method: 'GET',
+      url: '/'
+    })
+  }
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -26,8 +33,9 @@ function App() {
         <Route exact path= "/understanding" component={Understanding}/>
         <Route exact path= "/support" component={Support}/>
         <Route exact path= "/comments" component={Comments}/>
+        <Route exact path= "/review" />
 
-        <Route/>
+        <Route exact path= "/admin"/>
       </Router>
     </div>
   );
