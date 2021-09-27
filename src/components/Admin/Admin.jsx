@@ -18,7 +18,7 @@ function Admin() {
             </thead>
             <tbody>
                 {entryList.map( (entry, index) => 
-                <tr>
+                <tr key={entry.id}>
                     <td>{entry.feeling}</td>
                     <td>{entry.understanding}</td>
                     <td>{entry.support}</td>
